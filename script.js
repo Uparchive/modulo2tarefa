@@ -1,3 +1,5 @@
+const exerciseID = "exercise_modulo_2"; // Mude para cada módulo (ex: "exercise_modulo_1", "exercise_modulo_3")
+
 const correctAnswers = { 
     q1: "a", 
     q2: "a", 
@@ -10,8 +12,8 @@ const correctAnswers = {
 
 // Carregar respostas e estado de envio do Local Storage
 function loadPreviousState() {
-    const savedAnswers = JSON.parse(localStorage.getItem("savedAnswers")) || {};
-    const submitted = localStorage.getItem("submitted") === "true";
+    const savedAnswers = JSON.parse(localStorage.getItem(`${exerciseID}_savedAnswers`)) || {};
+    const submitted = localStorage.getItem(`${exerciseID}_submitted`) === "true";
 
     for (let question in savedAnswers) {
         let input = document.querySelector(`input[name="${question}"][value="${savedAnswers[question]}"]`);
@@ -32,12 +34,13 @@ function saveAnswers(formData) {
     for (let [question, answer] of formData.entries()) {
         answers[question] = answer;
     }
-    localStorage.setItem("savedAnswers", JSON.stringify(answers));
+    localStorage.setItem(`${exerciseID}_savedAnswers`, JSON.stringify(answers));
+    localStorage.setItem(`${exerciseID}_submitted`, "true");
 }
 
 // Marcar questões corretas e erradas
 function markAnswers() {
-    const savedAnswers = JSON.parse(localStorage.getItem("savedAnswers")) || {};
+    const savedAnswers = JSON.parse(localStorage.getItem(`${exerciseID}_savedAnswers`)) || {};
 
     document.querySelectorAll('.question').forEach(q => {
         q.classList.remove("correct-answer", "incorrect-answer");
@@ -78,7 +81,6 @@ document.getElementById("exercicioForm").addEventListener("submit", function(eve
     let resultHtml = "<h2>Resultado:</h2>";
 
     saveAnswers(formData); // Salvar respostas no Local Storage
-    localStorage.setItem("submitted", "true"); // Marcar que o teste foi enviado
 
     for (let [question, answer] of formData.entries()) {
         let questionDiv = document.querySelector(`[name="${question}"]`).closest('.question');
@@ -106,7 +108,7 @@ document.getElementById("exercicioForm").addEventListener("submit", function(eve
 
 // Exibir resultado corretamente após a atualização da página
 function showResults() {
-    const savedAnswers = JSON.parse(localStorage.getItem("savedAnswers")) || {};
+    const savedAnswers = JSON.parse(localStorage.getItem(`${exerciseID}_savedAnswers`)) || {};
     let score = 0;
     let totalQuestions = Object.keys(correctAnswers).length;
     let resultHtml = "<h2>Resultado:</h2>";
@@ -136,7 +138,8 @@ function showResults() {
 
 // Adicionar botão para reiniciar tarefa
 document.getElementById("resetButton").addEventListener("click", function() {
-    localStorage.clear(); // Limpar todos os dados armazenados
+    localStorage.removeItem(`${exerciseID}_savedAnswers`);
+    localStorage.removeItem(`${exerciseID}_submitted`);
     document.getElementById("exercicioForm").reset();
     document.getElementById("resultado").innerHTML = "";
     document.querySelectorAll('.question').forEach(q => {
