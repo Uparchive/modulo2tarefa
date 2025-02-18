@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Construindo uma Equipe de Alto Desempenho</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="customAlert" class="custom-alert">
+        Por favor, responda todas as perguntas antes de enviar.
+        <br>
+        <button onclick="closeCustomAlert()">OK</button>
+    </div>    
+    <div class="container">
+        <h1>Exercício do 2º Módulo - Construindo uma Equipe de Alto Desempenho</h1>
+        <form id="exercicioForm">
+            <div class="question">
+                <label>1. Qual é um dos principais fatores para construir uma equipe de alto desempenho?</label><br>
+                <input type="radio" name="q1" value="a"> A) Contratação estratégica e cultura organizacional forte.<br>
+                <input type="radio" name="q1" value="b"> B) Contratar qualquer pessoa sem critério.<br>
+                <input type="radio" name="q1" value="c"> C) Evitar feedbacks e comunicação clara.<br>
+                <input type="radio" name="q1" value="d"> D) Deixar a equipe sem liderança definida.<br>
+            </div>
+            <div class="question">
+                <label>2. O que é essencial ao selecionar talentos para uma equipe?</label><br>
+                <input type="radio" name="q2" value="a"> A) Avaliar competências e alinhamento com os valores da empresa.<br>
+                <input type="radio" name="q2" value="b"> B) Escolher qualquer candidato sem um processo seletivo.<br>
+                <input type="radio" name="q2" value="c"> C) Basear a seleção apenas em preferências pessoais.<br>
+                <input type="radio" name="q2" value="d"> D) Contratar apenas pessoas com o mesmo perfil.<br>
+            </div>
+            <div class="question">
+                <label>3. Como reter talentos na equipe?</label><br>
+                <input type="radio" name="q3" value="a"> A) Criando um ambiente positivo e investindo no desenvolvimento profissional.<br>
+                <input type="radio" name="q3" value="b"> B) Evitando reconhecimento e promoção interna.<br>
+                <input type="radio" name="q3" value="c"> C) Aplicando regras rígidas e autoritárias.<br>
+                <input type="radio" name="q3" value="d"> D) Não oferecer incentivos nem oportunidades de crescimento.<br>
+            </div>
+            <div class="question">
+                <label>4. Por que a diversidade na equipe é importante?</label><br>
+                <input type="radio" name="q4" value="a"> A) Promove inovação e diferentes perspectivas.<br>
+                <input type="radio" name="q4" value="b"> B) Deixa a equipe desorganizada.<br>
+                <input type="radio" name="q4" value="c"> C) Atrapalha a produtividade.<br>
+                <input type="radio" name="q4" value="d"> D) Não tem impacto relevante.<br>
+            </div>
+            <div class="question">
+                <label>5. Qual é o papel de um líder em uma equipe de alto desempenho?</label><br>
+                <input type="radio" name="q5" value="a"> A) Inspirar, motivar e dar suporte aos colaboradores.<br>
+                <input type="radio" name="q5" value="b"> B) Apenas delegar tarefas sem acompanhamento.<br>
+                <input type="radio" name="q5" value="c"> C) Evitar o contato direto com a equipe.<br>
+                <input type="radio" name="q5" value="d"> D) Impor regras rígidas sem flexibilidade.<br>
+            </div>
+            <div class="question">
+                <label>6. Como a comunicação eficaz impacta uma equipe?</label><br>
+                <input type="radio" name="q6" value="a"> A) Melhora a colaboração e alinhamento dos objetivos.<br>
+                <input type="radio" name="q6" value="b"> B) Não tem impacto na produtividade.<br>
+                <input type="radio" name="q6" value="c"> C) Gera confusão e conflitos.<br>
+                <input type="radio" name="q6" value="d"> D) Reduz a transparência dentro da equipe.<br>
+            </div>
+            <div class="question">
+                <label>7. Qual das opções abaixo contribui para um ambiente motivador?</label><br>
+                <input type="radio" name="q7" value="a"> A) Reconhecimento e recompensas pelo bom desempenho.<br>
+                <input type="radio" name="q7" value="b"> B) Falta de comunicação e feedbacks negativos.<br>
+                <input type="radio" name="q7" value="c"> C) Pressão constante e metas inalcançáveis.<br>
+                <input type="radio" name="q7" value="d"> D) Não oferecer oportunidades de crescimento.<br>
+            </div>
+            <button type="submit">Enviar Respostas</button>
+            <button type="button" id="resetButton">🔄 Reiniciar Tarefa</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
